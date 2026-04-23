@@ -11,10 +11,10 @@ digits_to_words = {
 # Функция для преобразования каждой цифры мин и макс числа прописью
 
 def translate_number(number_str):
-    result = []
-    for char in number_str:
-        result.append(digits_to_words[char])
-    return ' '.join(result)
+    result = re.sub(r'\d', lambda match:
+    digits_to_words[match.group()] + ' ', number_str)
+    return result
+
 
 
 # Чтение файла
